@@ -7,6 +7,7 @@ import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { CreateFidoComponent } from './create-fido/create-fido.component';
 import { FidoFetcherComponent } from './fido-fetcher/fido-fetcher.component';
+import { FidoService } from './fido.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { FidoFetcherComponent } from './fido-fetcher/fido-fetcher.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [FidoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

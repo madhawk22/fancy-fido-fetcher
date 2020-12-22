@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FidoService } from '../fido.service';
 
 @Component({
   selector: 'app-item',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
+  @Input() fido;
+  fidoService: FidoService;
 
-  constructor() { }
+  constructor(fidoService: FidoService) {
+    this.fidoService = fidoService;
+  }
 
   ngOnInit(): void {
   }

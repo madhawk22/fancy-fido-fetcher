@@ -1,1 +1,6 @@
-<p>list works!</p>
+<div class="container overflow-auto" style="height: 600px;">
+  <app-item *ngFor="let f of fidos"
+  [fido]="f"></app-item>
+</div>
+
+
