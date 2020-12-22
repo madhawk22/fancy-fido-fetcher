@@ -1,4 +1,10 @@
-<div>
-  <img src={{picUrl}} alt="Picture of dog" class="img-fluid img-thumbnail m-2">
-  <button (click)="getNewPic()">FETCH!</button>
+
+<div class="container align-text-center">
+  <div class="row justify-content-center">
+    <button class="btn btn-warning text-align-center" (click)="getNewPic()">FETCH!</button>
+  </div>
+  <div class="row justify-content-center">
+    <img src={{picUrl}} alt="Picture of dog" class="img-fluid img-thumbnail m-2" style="max-width: 400px;">
+  </div>
+
 </div>
