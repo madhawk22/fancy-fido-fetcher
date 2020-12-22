@@ -10,6 +10,7 @@ import { FidoFetcherComponent } from './fido-fetcher/fido-fetcher.component';
 import { FidoService } from './fido.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes = [
   { path: 'fidos', component: ListComponent},
@@ -29,6 +30,7 @@ const routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [FidoService],

@@ -10,15 +10,26 @@ export class FidoFetcherComponent implements OnInit {
   picUrl = '';
 
   fidoService: FidoService;
+  subscription;
 
   constructor(fidoService: FidoService) {
     this.fidoService = fidoService;
   }
 
-  ngOnInit(): void {
+  getNewPic(){
+    this.fidoService.fetchNewFidoPic();
   }
 
-  getNewPic(){
-    this.picUrl = '';
+  ngOnInit(){
+    this.fidoService.fetchNewFidoPic();
+    this.subscription = this.fidoService.urlChanged.subscribe(
+      ()=> {
+        this.picUrl = this.fidoService.currentUrl;
+      }
+    );
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

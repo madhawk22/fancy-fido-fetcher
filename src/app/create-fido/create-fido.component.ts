@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { format } from 'path';
 import { FidoService } from '../fido.service';
 
 @Component({

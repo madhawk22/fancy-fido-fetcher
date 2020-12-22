@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
+@Injectable()
 export class FidoService {
 
   fidos = [
@@ -8,10 +12,15 @@ export class FidoService {
     { name: 'Biff Jr', age: 23, profession: 'jock', hometown: 'Beaver, OH', likes: 'himself, winning, money, hot chicks', dislikes: 'school, rooms without mirrors', pic: 'https://images.dog.ceo/breeds/retriever-chesapeake/n02099849_3.jpg'},
 
   ];
+  currentUrl = '';
 
   fidosChanged = new Subject<void>();
+  urlChanged = new Subject<void>();
+  http: HttpClient;
 
-  constructor() {}
+  constructor(http: HttpClient) {
+    this.http = http;
+  }
 
   getFidos(){
     console.log(this.fidos);
@@ -25,6 +34,16 @@ export class FidoService {
   }
 
   fetchNewFidoPic(){
-
+    this.http.get('https://dog.ceo/api/breeds/image/random')
+    .pipe(
+      map( (response) => {
+      let url: string = response['message'];
+      return url;
+    }))
+    .subscribe((data) => {
+      console.log(data);
+      this.currentUrl = data;
+      this.urlChanged.next();
+    });
   }
 }
