@@ -20,7 +20,7 @@ export class FidoService {
 
   addFido(name, age, profession, hometown, likes, dislikes, pic){
     const newFido = { name: name, age: age, profession: profession, hometown: hometown, likes: likes, dislikes: dislikes, pic: pic};
-    this.fidos.push(newFido);
+    this.fidos.unshift(newFido);
     this.fidosChanged.next();
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { format } from 'path';
+import { FidoService } from '../fido.service';
 
 @Component({
   selector: 'app-create-fido',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-fido.component.css']
 })
 export class CreateFidoComponent implements OnInit {
+  fidoService: FidoService;
 
-  constructor() { }
+  constructor(fidoService: FidoService) {
+    this.fidoService = fidoService;
+  }
 
   ngOnInit(): void {
   }
 
+  onSubmit(submittedForm){
+    if(submittedForm.invalid){
+      return;
+    }
+    console.log(submittedForm.value);
+    this.fidoService.addFido(submittedForm.value.name,
+      submittedForm.value.age,
+      submittedForm.value.profession,
+      submittedForm.value.hometown,
+      submittedForm.value.likes,
+      submittedForm.value.dislikes,
+      submittedForm.value.pic);
+    submittedForm.reset();
+  }
 }
