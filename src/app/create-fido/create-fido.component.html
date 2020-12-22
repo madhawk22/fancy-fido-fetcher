@@ -1,1 +1,70 @@
-<p>create-fido works!</p>
+<form #form="ngForm">
+
+  <div class="form-group">
+    <label for="name">Fido Name:</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      ngModel
+      required
+      #nameCtrl="ngModel"
+    >
+    <span class="text-muted" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name!</span>
+  </div>
+
+  <!-- check for number -->
+  <div class="form-group">
+    <label for="name">Age:</label>
+    <input
+      type="text"
+      name="age"
+      id="age"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="name">Profession:</label>
+    <input
+      type="text"
+      name="profession"
+      id="profession"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="name">Hometown:</label>
+    <input
+      type="text"
+      name="hometown"
+      id="hometown"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="name">Likes:</label>
+    <input
+      type="text"
+      name="likes"
+      id="dislikes"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="name">Dislikes:</label>
+    <input
+      type="text"
+      name="dislikes"
+      id="dislikes"
+      class="form-control"
+    >
+  </div>
+
+  <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Add Fido</button>
+
+</form>

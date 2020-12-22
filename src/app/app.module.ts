@@ -8,6 +8,7 @@ import { ItemComponent } from './item/item.component';
 import { CreateFidoComponent } from './create-fido/create-fido.component';
 import { FidoFetcherComponent } from './fido-fetcher/fido-fetcher.component';
 import { FidoService } from './fido.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FidoService } from './fido.service';
     FidoFetcherComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [FidoService],
   bootstrap: [AppComponent]
