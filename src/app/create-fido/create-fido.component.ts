@@ -27,7 +27,7 @@ export class CreateFidoComponent implements OnInit {
       submittedForm.value.hometown,
       submittedForm.value.likes,
       submittedForm.value.dislikes,
-      submittedForm.value.pic);
+      this.fidoService.currentUrl);
     submittedForm.reset();
   }
 }
