@@ -23,4 +23,8 @@ export class FidoService {
     this.fidos.unshift(newFido);
     this.fidosChanged.next();
   }
+
+  fetchNewFidoPic(){
+
+  }
 }
