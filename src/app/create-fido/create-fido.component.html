@@ -11,10 +11,9 @@
       required
       #nameCtrl="ngModel"
     >
-    <span class="text-muted" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name!</span>
+    <span class="text-muted" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name</span>
   </div>
 
-  <!-- check for number -->
   <div class="form-group">
     <label for="name">Age:</label>
     <input
@@ -22,7 +21,12 @@
       name="age"
       id="age"
       class="form-control"
+      pattern="^\d+$"
+      ngModel
+      required
+      #ageCtrl="ngModel"
     >
+    <span class="text-muted" *ngIf="ageCtrl.invalid && ageCtrl.touched">Please enter a positive integer age</span>
   </div>
 
   <div class="form-group">
@@ -32,7 +36,11 @@
       name="profession"
       id="profession"
       class="form-control"
+      ngModel
+      required
+      #jobCtrl="ngModel"
     >
+    <span class="text-muted" *ngIf="jobCtrl.invalid && jobCtrl.touched">Please enter a profession</span>
   </div>
 
   <div class="form-group">
@@ -42,7 +50,11 @@
       name="hometown"
       id="hometown"
       class="form-control"
+      ngModel
+      required
+      #townCtrl="ngModel"
     >
+    <span class="text-muted" *ngIf="townCtrl.invalid && townCtrl.touched">Please enter a hometown</span>
   </div>
 
   <div class="form-group">
@@ -52,6 +64,7 @@
       name="likes"
       id="dislikes"
       class="form-control"
+      ngModel
     >
   </div>
 
@@ -62,6 +75,7 @@
       name="dislikes"
       id="dislikes"
       class="form-control"
+      ngModel
     >
   </div>
 
