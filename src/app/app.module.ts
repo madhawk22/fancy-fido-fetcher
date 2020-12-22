@@ -9,6 +9,13 @@ import { CreateFidoComponent } from './create-fido/create-fido.component';
 import { FidoFetcherComponent } from './fido-fetcher/fido-fetcher.component';
 import { FidoService } from './fido.service';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+const routes = [
+  { path: 'fidos', component: ListComponent},
+  { path: 'fetch-fido', component: CreateFidoComponent},
+  { path: '**', redirectTo:'/fidos'}
+]
 
 @NgModule({
   declarations: [
@@ -21,7 +28,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [FidoService],
   bootstrap: [AppComponent]
