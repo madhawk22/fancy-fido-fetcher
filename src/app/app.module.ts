@@ -11,10 +11,11 @@ import { FidoService } from './fido.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FetchPageComponent } from './fetch-page/fetch-page.component';
 
 const routes = [
   { path: 'fidos', component: ListComponent},
-  { path: 'fetch-fido', component: CreateFidoComponent},
+  { path: 'fetch-fido', component: FetchPageComponent},
   { path: '**', redirectTo:'/fidos'}
 ]
 
@@ -25,7 +26,8 @@ const routes = [
     ListComponent,
     ItemComponent,
     CreateFidoComponent,
-    FidoFetcherComponent
+    FidoFetcherComponent,
+    FetchPageComponent
   ],
   imports: [
     BrowserModule,
