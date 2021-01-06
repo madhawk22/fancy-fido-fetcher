@@ -6,6 +6,8 @@ Fetch a foto of a fancy fido and create a pup persona!
 
 This Angular app integrates with the dog.ceo API (https://dog.ceo/dog-api/) to generate random pictures of dogs. Once the user has found the perfect photo, they can fill out the form to create a persona for that pup. The form has real-time input validation to ensure required fields are included and appropriate inputs are received. Users can navigate between creating new personas and browsing existing personas using the navigation bar at the top of the page. Unit tests are included to test the API integration at the service and component level.
 
+To run the app: clone this repo, navigate to the folder, and follow the development server instructions below.
+
 ## Angular CLI instructions
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
