@@ -21,7 +21,7 @@ export class FidoFetcherComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.getNewPic(); //changed
+    this.getNewPic();
     this.subscription = this.fidoService.urlChanged.subscribe(
       (url)=> {
         this.picUrl = url;
