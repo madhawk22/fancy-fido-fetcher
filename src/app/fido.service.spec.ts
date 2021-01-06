@@ -60,12 +60,6 @@ describe('FidoService', () => {
     expect(req.request.method).toEqual('GET');
 
     req.flush(picUrl);
-
-      //   service.urlChanged.subscribe( url =>
-      //   expect(url).toEqual(picUrl), fail
-      // )
-
-
   });
 
 });

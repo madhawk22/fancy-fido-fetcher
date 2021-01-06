@@ -12,7 +12,6 @@ export class FidoService {
     { name: 'Biff Jr', age: 23, profession: 'jock', hometown: 'Beaver, OH', likes: 'himself, winning, money, hot chicks', dislikes: 'school, rooms without mirrors', pic: 'https://images.dog.ceo/breeds/retriever-chesapeake/n02099849_3.jpg'},
 
   ];
-  //currentUrl = '';
 
   fidosChanged = new Subject<void>();
   urlChanged = new Subject<string>();
@@ -21,10 +20,6 @@ export class FidoService {
   constructor(http: HttpClient) {
     this.http = http;
   }
-
-  // getCurrentUrl() {
-  //   return this.currentUrl;
-  // }
 
   getFidos(){
     console.log(this.fidos);
@@ -46,7 +41,6 @@ export class FidoService {
     }))
     .subscribe((data) => {
       console.log(data);
-      //this.currentUrl = data;
       this.urlChanged.next(data);
     });
   }
