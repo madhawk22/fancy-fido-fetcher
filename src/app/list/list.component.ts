@@ -10,7 +10,6 @@ export class ListComponent implements OnInit {
   fidos = [];
 
   fidoService: FidoService;
-  subscription;
 
   constructor(fidoService: FidoService) {
     this.fidoService = fidoService;

@@ -21,10 +21,10 @@ export class FidoFetcherComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.fidoService.fetchNewFidoPic();
+    this.getNewPic(); //changed
     this.subscription = this.fidoService.urlChanged.subscribe(
-      ()=> {
-        this.picUrl = this.fidoService.currentUrl;
+      (url)=> {
+        this.picUrl = url;
       }
     );
   }

@@ -5,22 +5,26 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class FidoService {
-
+  fidoApiUrl = 'https://dog.ceo/api/breeds/image/random';
   fidos = [
     { name: 'Lady', age: 26, profession: 'heiress', hometown: 'London, England', likes: 'pearl necklaces and dry martinis with 3 olives', dislikes: 'dirt', pic: 'https://images.dog.ceo/breeds/papillon/n02086910_7280.jpg'},
     { name: 'Tramp', age: 28, profession: 'scoundrel', hometown: 'Chicago, USA', likes: 'dumpster diving, leftover pizza, and heiresses', dislikes: 'suits and ties', pic: 'https://images.dog.ceo/breeds/terrier-patterdale/Patterdale.jpg'},
     { name: 'Biff Jr', age: 23, profession: 'jock', hometown: 'Beaver, OH', likes: 'himself, winning, money, hot chicks', dislikes: 'school, rooms without mirrors', pic: 'https://images.dog.ceo/breeds/retriever-chesapeake/n02099849_3.jpg'},
 
   ];
-  currentUrl = '';
+  //currentUrl = '';
 
   fidosChanged = new Subject<void>();
-  urlChanged = new Subject<void>();
+  urlChanged = new Subject<string>();
   http: HttpClient;
 
   constructor(http: HttpClient) {
     this.http = http;
   }
+
+  // getCurrentUrl() {
+  //   return this.currentUrl;
+  // }
 
   getFidos(){
     console.log(this.fidos);
@@ -34,7 +38,7 @@ export class FidoService {
   }
 
   fetchNewFidoPic(){
-    this.http.get('https://dog.ceo/api/breeds/image/random')
+    this.http.get(this.fidoApiUrl)
     .pipe(
       map( (response) => {
       let url: string = response['message'];
@@ -42,8 +46,8 @@ export class FidoService {
     }))
     .subscribe((data) => {
       console.log(data);
-      this.currentUrl = data;
-      this.urlChanged.next();
+      //this.currentUrl = data;
+      this.urlChanged.next(data);
     });
   }
 }

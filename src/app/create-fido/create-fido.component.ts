@@ -8,12 +8,19 @@ import { FidoService } from '../fido.service';
 })
 export class CreateFidoComponent implements OnInit {
   fidoService: FidoService;
+  picUrl = '';
+  subscription;
 
   constructor(fidoService: FidoService) {
     this.fidoService = fidoService;
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.subscription = this.fidoService.urlChanged.subscribe(
+      (url)=> {
+        this.picUrl = url;
+      }
+    );
   }
 
   onSubmit(submittedForm){
@@ -27,7 +34,11 @@ export class CreateFidoComponent implements OnInit {
       submittedForm.value.hometown,
       submittedForm.value.likes,
       submittedForm.value.dislikes,
-      this.fidoService.currentUrl);
+      this.picUrl);
     submittedForm.reset();
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }
